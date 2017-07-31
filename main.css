@@ -1,0 +1,263 @@
+body, svg text {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+svg {
+  shape-rendering: geometricPrecision;
+  text-rendering: optimizeLegibility;
+}
+
+svg :not(.tick) > text {
+  fill: black;
+  transform-origin: center;
+  text-anchor: middle;
+}
+
+.page {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1280px;
+  height: 720px;
+  overflow: hidden;
+  background-image: url('background.png');
+  background-size: 100% 100%;
+}
+
+.page > * {
+  display: block;
+  left: 10%;
+  right: 10%;
+  position: absolute;
+}
+
+.page-title {
+  top: 17%;
+  font-size: 44px;
+}
+
+.page-contents {
+  top: 25%;
+  height: 70%;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.page.big-note .page-contents {
+  top: 32%;
+  font-size: 32px;
+}
+
+.page.chart {
+  background: none
+}
+
+.page.chart > * {
+  left: 5%;
+  right: 5%;
+}
+
+.page.chart .page-title {
+  top: 10%;
+  font-size: 27px;
+}
+
+.page.chart .page-subtitle {
+  top: 15%;
+  font-size: 20px;
+  color: #aaa;
+}
+
+.page.chart .page-contents {
+  top: 22%;
+  height: 70%;
+}
+
+.page.chart .page-contents svg {
+  width: 100%;
+  height: 100%;
+}
+
+.page.chart .page-contents svg text {
+  font-size: 14px;
+}
+
+.page.chart .page-contents svg .tool-tip {
+  font-size: 16px;
+}
+
+.page:after {
+  content: counter(page);
+  counter-increment: page;
+  display: block;
+  position: relative;
+  top: 90%;
+  right: 5%;
+  text-align: right;
+}
+
+#container {
+  counter-reset: page;
+}
+
+#title {
+  top: 35%;
+  font-size: 65px;
+  text-align: center;
+}
+
+#link-to-about {
+  font-size: 25px;
+  top: 55%;
+  left: 60%;
+}
+
+#link-to-about a {
+  padding: 10px;
+  color: white;
+  background-color: #777;
+}
+
+#link-to-about a:link {
+  text-decoration: none;
+}
+
+#by-year-line path {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+#by-year-hit-test rect {
+  opacity: 0;
+}
+
+#by-year-hit-test :not(:hover) .tool-tip {
+  display: none;
+}
+
+#by-year-hit-test circle {
+  r: 5px;
+  opacity: 1;
+}
+
+#by-year-hit-test :not(:hover) circle {
+  fill: black;
+  r: 4px;
+  opacity: 0.3;
+}
+
+#by-year-hit-test .tool-tip div {
+  border: 1px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 5px;
+  line-height: 150%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#by-year-hit-test .tool-tip .percentage {
+  font-weight: bold;
+}
+
+#by-age-area-men {
+  fill: steelblue;
+}
+
+#by-age-area-men circle {
+  fill: black;
+  r: 4px;
+}
+
+#by-age-area-women {
+  fill: orange;
+}
+
+#by-age-area-women circle {
+  fill: black;
+  r: 4px;
+}
+
+#by-age-area-annotation circle {
+  r: 20px;
+  stroke-width: 2px;
+  stroke: white;
+  fill: rgba(255, 255, 255, 0.7);
+  filter: url(#by-age-area-annotation-shadow);
+}
+
+#by-age-area-annotation text {
+  font-weight: bold;
+}
+
+#by-age-area:not(:hover) #by-age-area-annotation {
+  display: none;
+}
+
+#by-age-area-legend {
+  transform: translate(120px, 30px);
+}
+
+#by-age-area-legend circle {
+  r: 6px;
+}
+
+#by-age-area-legend text {
+  text-anchor: start;
+  transform: translate(12px, 5.5px);
+}
+
+#by-age-area-legend-men circle {
+  fill: steelblue;
+}
+
+#by-age-area-legend-women {
+  transform: translate(0px, 18px);
+}
+
+#by-age-area-legend-women circle {
+  fill: orange;
+}
+
+#by-state-map {
+  transform: translate(300px, 0) scale(0.8);
+  stroke: black;
+  stroke-width: 0.5px;
+}
+
+#by-state-map-color-scale {
+  x: 100px;
+  y: 100px;
+  width: 30px;
+  height: 300px;
+  fill: url(#by-state-map-gradient);
+}
+
+#by-state-map-lower-bound, #by-state-map-upper-bound {
+  fill: black;
+  text-anchor: start;
+}
+
+#about .page-title {
+  top: 7%;
+}
+
+#about .page-contents {
+  top: 15%;
+  height: 75%;
+  overflow-x: visible;
+  overflow-y: scroll;
+  font-size: 16px;
+}
+
+#about ul {
+  margin-top: 15px;
+  margin-left: 20px;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+#about li:first-line {
+  font-style: italic;
+}

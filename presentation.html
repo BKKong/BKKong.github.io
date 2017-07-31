@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,400i,700">
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div id="container">
+      <div id="cover" class="page">
+        <header id="title">Gender Pay Gap in the U.S.</header>
+        <div id="link-to-about"><a href="#about">About the Visualization</a></div>
+      </div>
+      <div class="page big-note">
+        <header class="page-title">The Big Number: 82%</header>
+        <div class="page-contents">
+          Did you know that in 2016, women working full time in the United States
+          typically were paid just 82% of what men were paid?
+        </div>
+      </div>
+      <div class="page chart">
+        <header class="page-title">Women’s Weekly Earnings as a Percentage of Men’s (1979–2016)</header>
+        <header class="page-subtitle">Hover to explore the percentage of each year</header>
+        <div class="page-contents">
+          <svg id="by-year">
+            <g id="by-year-line"></g>
+            <g id="by-year-x-axis">
+              <text id="by-year-x-axis-caption">Year</text>
+            </g>
+            <g id="by-year-y-axis">
+              <text id="by-year-y-axis-caption">Annual Average Percentage</text>
+            </g>
+            <g id="by-year-hit-test"></g>
+          </svg>
+        </div>
+      </div>
+      <div class="page big-note">
+        <header class="page-title">What could contribute to the gap?</header>
+        <div class="page-contents">
+          According a study by the National Bureau of Economic Research,
+          the gender pay gap widens significantly between ages 25–44, when
+          many women have children. Unmarried women without children
+          continue to earn closer than what men do.
+        </div>
+      </div>
+      <div class="page chart">
+        <header class="page-title">Weekly Earnings by Age Group and by Gender, 2015</header>
+        <header class="page-subtitle">Hover to explore women’s earning as a percentage of men’s for different age groups</header>
+        <div class="page-contents">
+          <svg id="by-age">
+            <defs>
+              <filter id="by-age-area-annotation-shadow" x="-50%" y="-50%" width="200%" height="200%">
+                <feDropShadow dx="2" dy="2" stdDeviation="2"/>
+              </filter>
+            </defs>
+            <g id="by-age-area">
+              <g id="by-age-area-men"></g>
+              <g id="by-age-area-women"></g>
+              <g id="by-age-area-annotation"></g>
+              <g id="by-age-area-legend">
+                <g id="by-age-area-legend-men">
+                  <circle/>
+                  <text>Men</text>
+                </g>
+                <g id="by-age-area-legend-women">
+                  <circle/>
+                  <text>Women</text>
+                </g>
+              </g>
+            </g>
+            <g id="by-age-x-axis">
+            </g>
+            <g id="by-age-y-axis"></g>
+          </svg>
+        </div>
+      </div>
+      <div class="page big-note">
+        <header class="page-title">How about the pay gap across states?</header>
+        <div class="page-contents">
+          In 2015 the pay gap was smallest in Hawaii, where women working
+          full time year-round were paid 88% of what men were paid.
+          The largest gap was in Wyoming, where women were paid 69%
+          of what men were paid.
+        </div>
+      </div>
+      <div class="page chart">
+        <header class="page-title">Women’s Weekly Earnings as a Percentage of Men’s by State, 2015</header>
+        <div class="page-contents">
+          <svg id="by-state">
+            <defs>
+              <linearGradient id="by-state-map-gradient" x1="0" x2="0" y1="1" y2="0"/>
+            </defs>
+            <g id="by-state-map"></g>
+            <rect id="by-state-map-color-scale"></rect>
+            <text id="by-state-map-lower-bound" dx="140" dy="404"></text>
+            <text id="by-state-map-upper-bound" dx="140" dy="104"></text>
+          </svg>
+        </div>
+      </div>
+      <div id="about" class="page">
+        <header class="page-title">About the Visualization</header>
+        <div class="page-contents">
+          <p>This visualization uses a slideshow with templates for visual consistency. The slideshow starts with a general overview of the gender pay gap in the U.S., then the following slides discuss different aspects of the gender pay gap by year, by age group and by geographic locations.</p>
+          <ul>
+            <li>Does the narrative visualization correctly follow the hybrid structure?<br>
+              Yes. The narrative visualization uses the interactive slideshow structure and users can manipulate the visualization in various pages. Readers can scroll to the page they want to see and they can use mouse tip to investigate a certain data point in the slideshow.</li>
+            <li>Does the narrative visualization effectively utilize scenes?<br>
+              Yes. Two scenes are used consistently to guide the readers. The first scene is a display of key ideas with a picture in the background, and this template is used for pages 2, 4 and 6. The other scene is a display of visualization charts with white background.  This template is used for pages 3, 5, and 7.</li>
+            <li>Does the narrative visualization effectively utilize annotations?<br>
+              Yes. On page 3, annotations are used to highlight the year and the women’s pay as a percentage of the men’s, so that readers can read the exact number of the line chart. Annotations are also used on page 5 to indicate women’s and men’s median weekly earnings and percentages. Annotations on the same page follow the same template to maintain a neat and organized scene. Annotations are cleared between scenes because different pages present different information, and old annotations may become irrelevant.</li>
+            <li>Does the narrative visualization effectively utilize parameters?<br>
+              Yes. On page 3, years (x-axis) are the parameters. The D3 codes are written in such a way that the position of the mouse on the x-axis controls the annotations displayed. Therefore, when the mouse moves, the state of the visualization changes.</li>
+            <li>Does the narrative visualization effectively utilize triggers?<br>
+              Yes. On both pages 3 and 5, there are sentences “Hover to explore” on the upper portion of the page to inform readers that they can move the mouse to explore the visualization. When the readers do so, the horizontal position of the mouse will trigger the parameter change (year change).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.14/jquery.scrollify.min.js"></script>
+    <script src="main.js"></script>
+    <script src="by-year.js" async></script>
+    <script src="by-age.js" async></script>
+    <script src="by-state.js" async></script>
+  </body>
+</html>
